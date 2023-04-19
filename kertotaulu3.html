@@ -1,0 +1,38 @@
+<!-- 
+	JavaScriptiä sisältävä HTML-sivu, jossa
+	kertotaulu muodostetaan taulukkoon (table-, tr- ja td-elementit)
+	p-elementtien sijaan. Lisäksi mukana on virhekäsittely, eli
+	virheilmoitus (”Anna luku väliltä 1-10.”), jos syöte on virheellinen.
+
+	Tässä versiossa JavaScript on omassa tiedostossaan kertotaulu.js
+	ja sivuun on liitetty tyylitiedosto tyylit.css, joka määrittelee, että
+	taulukossa on reunaviivat näkyvissä ja että taulukon solujen sisältö
+	on keskitetty.
+
+	Copyright 2022 Raine Kauppinen
+	
+	Lisenssi:
+	Creative Commons Nimeä-EiKaupallinen 4.0 Kansainvälinen,
+	ks. http://creativecommons.org/licenses/by-nc/4.0/
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="tyylit.css">
+		<title>Kertotaulu</title>
+	</head>
+
+	<body onload="kertotaulu(5);">
+		<form>
+			<label for="luku">Luku (1-10):</label>
+			<input type="number" id="luku" name="luku"
+				min="1" max="10" value="5">
+			<input
+				onclick="kertotaulu(document.getElementById('luku').value);"
+				type="button" id="nappi" name="nappi" value="Näytä">
+		</form>
+		<div id="kertotaulu"></div>
+		<!--src source scriptille oma tiedosto niin pysyy selkeämpänä-->
+		<script src="kertotaulu.js"></script>
+	</body>
+</html>
